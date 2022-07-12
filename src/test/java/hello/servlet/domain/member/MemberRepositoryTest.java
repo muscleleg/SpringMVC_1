@@ -14,7 +14,7 @@ class MemberRepositoryTest {
     //junit4까지는 public class 써줘야하지만 5부터는 안써줘도딤 class만 쓰면 됨
     MemberRepository memberRepository = MemberRepository.getInstance();
 
-    @AfterEach//각각 테스트가 실행된후 실행되는 코드, A테스트가 실행후 clear, B테스트가 실행후 clear 같은느낌임
+    @AfterEach//각각 테스트가 실행된후 실행되는 코드, A테스트가 실행후 clear, B테스트가 실행후 clear 같은느낌임E
     void afterEach() {
         memberRepository.clearStore();
     }
