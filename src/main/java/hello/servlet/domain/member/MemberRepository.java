@@ -35,7 +35,7 @@ public class MemberRepository {
         return store.get(id);
     }
     public List<Member> findAll(){
-        return new ArrayList<>(store.values());
+        return new ArrayList<>(store.values()); //member를 저장한것
 
     }
     public void clearStore(){

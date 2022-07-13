@@ -75,18 +75,18 @@ public class FrontControllerServletV5 extends HttpServlet {
         return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 
+
+    private Object getHandler(HttpServletRequest request) {
+        String requestURI = request.getRequestURI();
+        return handlerMappingMap.get(requestURI);
+    }
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
-        MyHandlerAdapter a;
+
         for (MyHandlerAdapter adapter : handlerAdapters) {
             if(adapter.supports(handler)){
                 return adapter;
             }
         }
         throw new IllegalArgumentException("handler adapter를 찾을 수 없습니다. handler= "+handler);
-    }
-
-    private Object getHandler(HttpServletRequest request) {
-        String requestURI = request.getRequestURI();
-        return handlerMappingMap.get(requestURI);
     }
 }
